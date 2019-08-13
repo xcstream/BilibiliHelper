@@ -40,7 +40,7 @@ const main = async () => {
     // 记录已经检查过的 GuardId
     list_cache.push(guardId)
 
-    // 非特定时间跳过领取 不跳
+    // 非特定时间跳过领取
 
     // const guardHours = config.get('guard.hours', [])
     // if (!guardHours.includes((new Date).getHours())) {
@@ -79,12 +79,12 @@ const main = async () => {
       }
 
       if (result.code) {
-        throw new Error('guard: 舰长经验领取失败，等待5秒')
-
+        logger.notice(`错误：${result.code}`)
+        continue
       }
     }
 
-    await sleep(5 * 1000)
+    await sleep(5 * 1000 + Math.random() * 50 * 1000)
   }
 }
 

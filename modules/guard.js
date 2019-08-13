@@ -75,8 +75,6 @@ const main = async () => {
 
       if (result.code === 400 && result.msg.includes('领取过')) {
         logger.notice(`guard: ${originRoomid} 舰长经验已经领取过`)
-        await sleep(20 * 1000)
-
         continue
       }
 

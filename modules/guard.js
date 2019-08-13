@@ -80,10 +80,11 @@ const main = async () => {
 
       if (result.code) {
         throw new Error('guard: 舰长经验领取失败，稍后重试')
+
       }
     }
 
-    await sleep(5 * 1000 + Math.random() * 60 * 1000)
+    await sleep(5 * 1000)
   }
 }
 

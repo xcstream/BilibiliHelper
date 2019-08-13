@@ -79,7 +79,7 @@ const main = async () => {
       }
 
       if (result.code) {
-        throw new Error('guard: 舰长经验领取失败，稍后重试')
+        throw new Error('guard: 舰长经验领取失败，等待5秒')
 
       }
     }

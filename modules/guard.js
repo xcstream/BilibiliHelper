@@ -40,19 +40,20 @@ const main = async () => {
     // 记录已经检查过的 GuardId
     list_cache.push(guardId)
 
-    // 非特定时间跳过领取
-    const guardHours = config.get('guard.hours', [])
-    if (!guardHours.includes((new Date).getHours())) {
-      logger.debug('guard：非特定时间跳过领取')
-      continue
-    }
+    // 非特定时间跳过领取 不跳
 
-    // 概率性跳过领取
-    const guardPercent = config.get('guard.percent', 100)
-    if (Math.random() * 100 >= guardPercent) {
-      logger.debug('guard：概率性跳过领取')
-      continue
-    }
+    // const guardHours = config.get('guard.hours', [])
+    // if (!guardHours.includes((new Date).getHours())) {
+    //   logger.debug('guard：非特定时间跳过领取')
+    //   continue
+    // }
+    //
+    // // 概率性跳过领取
+    // const guardPercent = config.get('guard.percent', 100)
+    // if (Math.random() * 100 >= guardPercent) {
+    //   logger.debug('guard：概率性跳过领取')
+    //   continue
+    // }
 
     // 检测是否是真实存在的room
     const isTrueRoom = await checkTrueRoom(originRoomid)
